@@ -1,3 +1,3 @@
-- [温度控制App](./temperature-control)
+- [温度控制App](./temperature-control) - temperature-control
 
   
