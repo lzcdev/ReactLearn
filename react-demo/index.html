@@ -20,31 +20,47 @@
   <div id="app"></div>
   <script type="text/babel">
 
-    class List extends React.Component {
+    class TodoList extends React.Component {
       state = {
-        list: [{id: 0, text: 'Java'},
-        { id: 1, text: 'JavaScript' },
-        { id: 2, text: 'Objective-C' },
-        { id: 3, text: 'Swift' },
-        { id: 4, text: 'TypeScript' }]
+        list: [],
+        val: ''
       }
 
-
+      handleAdd = () => {
+        // this.state.list.push(this.state.val)
+        const { list, val } = this.state
+        list.push(val)
+        this.setState({
+          list
+          // list: this.state.list
+        })
+      }
+      handleInput = (event) => {
+        this.setState({
+          val: event.target.value
+        })
+      }
       render() {
-        const { list } = this.state
+        const { list, val } = this.state
         const listItem = []
-        list.map(item => {
-          let li = <li key={item.id}>{item.text}</li>
+        list.map((item, index) => {
+          let li = <li key={index}>{item}</li>
           listItem.push(li)
         })
         return <div>
-          {listItem}
+          <div>
+            <input type="text" value={val} onChange={this.handleInput} />
+            <button onClick={this.handleAdd}>添加</button>
+          </div>
+          <ul>
+            {listItem}
+          </ul>
         </div>
       }
     }
 
     ReactDOM.render(
-      <List />
+      <TodoList />
       , document.getElementById('app'))
 
   </script>
