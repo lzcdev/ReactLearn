@@ -20,36 +20,31 @@
   <div id="app"></div>
   <script type="text/babel">
 
-    const Login = (props) => {
-      return <button onClick={props.updateLogin}>Login</button>
-    }
-
-    const Logout = (props) => {
-      return <button onClick={props.updateLogout}>Logout</button>
-    }
-
-    class App extends React.Component {
+    class List extends React.Component {
       state = {
-        isLogin: false
+        list: [{id: 0, text: 'Java'},
+        { id: 1, text: 'JavaScript' },
+        { id: 2, text: 'Objective-C' },
+        { id: 3, text: 'Swift' },
+        { id: 4, text: 'TypeScript' }]
       }
 
-      updateUser = () => {
-        this.setState({
-          isLogin: !this.state.isLogin
-        })
-      }
+
       render() {
-        const { isLogin } = this.state
+        const { list } = this.state
+        const listItem = []
+        list.map(item => {
+          let li = <li key={item.id}>{item.text}</li>
+          listItem.push(li)
+        })
         return <div>
-          <h1>hello, {this.state.name}</h1>
-          {isLogin ? <Login updateLogin={this.updateUser} /> : <Logout updateLogout={this.updateUser} />}
-          <button onClick={this.updateUser}>登录</button>
+          {listItem}
         </div>
       }
     }
 
     ReactDOM.render(
-      <App />
+      <List />
       , document.getElementById('app'))
 
   </script>
