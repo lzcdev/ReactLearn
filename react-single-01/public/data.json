@@ -1,0 +1,21 @@
+{
+  "code": 0,
+  "data": [{
+    "key": 1,
+    "area": "中国",
+    "java": 5000,
+    "php": 3423,
+    "Python": 399
+  }, {
+    "key": 2,
+    "area": "中国",
+    "java": 5000,
+    "Python": 399
+  }, {
+    "key": 3,
+    "area": "中国",
+    "java": 5000,
+    "Python": 399
+  }],
+  "msg": "success"
+}
